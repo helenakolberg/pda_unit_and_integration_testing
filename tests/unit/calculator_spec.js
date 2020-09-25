@@ -40,10 +40,21 @@ describe('calculator', function () {
   it('should be able to chain multiple operations together', function() {
     calculator.numberClick(1);
     calculator.numberClick(2);
-    calculator.operatorClick('/')
+    calculator.operatorClick('/');
     calculator.numberClick(3);
-    calculator.operatorClick('=')
+    calculator.operatorClick('=');
     assert.equal(4, calculator.runningTotal);
   });
+
+  it('should be able to clear the running total without affecting the calculation', function() {
+    calculator.numberClick(1);
+    calculator.numberClick(0);
+    calculator.operatorClick('*');
+    calculator.numberClick(7);
+    calculator.clearClick();
+    calculator.numberClick(5);
+    calculator.operatorClick('=');
+    assert.equal(50, calculator.runningTotal);
+  })
 
 });
