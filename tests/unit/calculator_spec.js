@@ -27,6 +27,14 @@ describe('calculator', function () {
     calculator.previousTotal = 21;
     calculator.divide(7);
     assert.equal(3, calculator.runningTotal);
+  });
+
+  it('should be able to concatenate multiple number button clicks', function() {
+    calculator.numberClick(9);
+    calculator.numberClick(2);
+    calculator.numberClick(3);
+    calculator.numberClick(5);
+    assert.equal(9235, calculator.runningTotal);
   })
 
 });
