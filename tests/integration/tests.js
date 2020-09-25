@@ -47,7 +47,15 @@ describe('calculator functionality', function() {
     element(by.css('#number4')).click();
     element(by.css('#operator_equals')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('2.25');
-  })
+  });
+
+  it('should be able to display negative numbers', function() {
+    element(by.css('#number1')).click();
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-1');
+  });
 
 
 });
