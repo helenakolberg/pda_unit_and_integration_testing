@@ -35,6 +35,15 @@ describe('calculator', function () {
     calculator.numberClick(3);
     calculator.numberClick(5);
     assert.equal(9235, calculator.runningTotal);
-  })
+  });
+
+  it('should be able to chain multiple operations together', function() {
+    calculator.numberClick(1);
+    calculator.numberClick(2);
+    calculator.operatorClick('/')
+    calculator.numberClick(3);
+    calculator.operatorClick('=')
+    assert.equal(4, calculator.runningTotal);
+  });
 
 });
